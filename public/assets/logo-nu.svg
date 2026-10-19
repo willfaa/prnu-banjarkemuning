@@ -1,0 +1,62 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 300" width="100%" height="100%">
+  <defs>
+    <radialGradient id="globeGrad" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#008f48" />
+      <stop offset="100%" stop-color="#005a2b" />
+    </radialGradient>
+    <filter id="subtleShadow" x="-10%" y="-10%" width="120%" height="120%">
+      <feDropShadow dx="0" dy="3" stdDeviation="4" flood-color="#000000" flood-opacity="0.15" />
+    </filter>
+  </defs>
+
+  <!-- Background Base Circle -->
+  <circle cx="150" cy="150" r="140" fill="#007a3d" filter="url(#subtleShadow)" />
+  <circle cx="150" cy="150" r="132" fill="none" stroke="#d4af37" stroke-width="3" />
+
+  <!-- Outer Cord / Rope (Tali Jagad Ikatan Jam'iyyah) -->
+  <circle cx="150" cy="150" r="122" fill="none" stroke="#ffffff" stroke-width="4" stroke-dasharray="8 4" opacity="0.9" />
+
+  <!-- Center Globe (Bola Dunia) -->
+  <circle cx="150" cy="155" r="58" fill="url(#globeGrad)" stroke="#d4af37" stroke-width="2.5" />
+  
+  <!-- Globe Meridians & Parallels -->
+  <path d="M 92 155 A 58 58 0 0 1 208 155" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+  <path d="M 97 135 A 58 35 0 0 1 203 135" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5" />
+  <path d="M 97 175 A 58 35 0 0 0 203 175" fill="none" stroke="#ffffff" stroke-width="1.2" opacity="0.5" />
+  <ellipse cx="150" cy="155" rx="30" ry="58" fill="none" stroke="#ffffff" stroke-width="1.5" opacity="0.6" />
+  <line x1="150" y1="97" x2="150" y2="213" stroke="#ffffff" stroke-width="1.5" opacity="0.7" />
+
+  <!-- Knot at the Bottom of Cord (Simpul Ikatan Ukhuwah) -->
+  <path d="M 135 258 C 145 248, 155 248, 165 258 C 172 265, 160 275, 150 270 C 140 275, 128 265, 135 258 Z" fill="#d4af37" stroke="#ffffff" stroke-width="1.5" />
+
+  <!-- Top Central Star (Bintang Terbesar - Rasulullah SAW) -->
+  <!-- Center: 150, 48 -->
+  <polygon points="150,32 154,44 167,44 157,52 161,64 150,56 139,64 143,52 133,44 146,44" fill="#d4af37" stroke="#ffffff" stroke-width="1" />
+
+  <!-- 4 Upper Stars (Khulafaur Rasyidin) -->
+  <!-- Star Left-1 -->
+  <polygon points="105,62 108,70 117,70 110,75 113,83 105,78 97,83 100,75 93,70 102,70" fill="#d4af37" stroke="#ffffff" stroke-width="0.8" />
+  <!-- Star Left-2 -->
+  <polygon points="68,98 71,105 79,105 73,110 75,117 68,113 61,117 63,110 57,105 65,105" fill="#d4af37" stroke="#ffffff" stroke-width="0.8" />
+  <!-- Star Right-1 -->
+  <polygon points="195,62 198,70 207,70 200,75 203,83 195,78 187,83 190,75 183,70 192,70" fill="#d4af37" stroke="#ffffff" stroke-width="0.8" />
+  <!-- Star Right-2 -->
+  <polygon points="232,98 235,105 243,105 237,110 239,117 232,113 225,117 227,110 221,105 229,105" fill="#d4af37" stroke="#ffffff" stroke-width="0.8" />
+
+  <!-- 4 Lower Stars (Empat Mazhab) -->
+  <!-- Star Lower Left-1 -->
+  <polygon points="65,190 68,196 75,196 69,201 71,207 65,203 59,207 61,201 55,196 62,196" fill="#d4af37" stroke="#ffffff" stroke-width="0.7" />
+  <!-- Star Lower Left-2 -->
+  <polygon points="98,225 101,231 108,231 102,236 104,242 98,238 92,242 94,236 88,231 95,231" fill="#d4af37" stroke="#ffffff" stroke-width="0.7" />
+  <!-- Star Lower Right-1 -->
+  <polygon points="235,190 238,196 245,196 239,201 241,207 235,203 229,207 231,201 225,196 232,196" fill="#d4af37" stroke="#ffffff" stroke-width="0.7" />
+  <!-- Star Lower Right-2 -->
+  <polygon points="202,225 205,231 212,231 206,236 208,242 202,238 196,242 198,236 192,231 199,231" fill="#d4af37" stroke="#ffffff" stroke-width="0.7" />
+
+  <!-- Center Text / Calligraphy Ribbon Accent -->
+  <path d="M 100 156 Q 150 144 200 156 Q 150 168 100 156 Z" fill="#ffffff" opacity="0.9" />
+  <text x="150" y="160" font-family="'Plus Jakarta Sans', sans-serif" font-weight="800" font-size="11" fill="#004d26" text-anchor="middle" letter-spacing="1.5">NAHDLATUL ULAMA</text>
+  
+  <!-- Subtext Banjar Kemuning Arc / Badge -->
+  <text x="150" y="240" font-family="'Plus Jakarta Sans', sans-serif" font-weight="700" font-size="9" fill="#ffffff" text-anchor="middle" letter-spacing="1">PRNU BANJARKEMUNING</text>
+</svg>

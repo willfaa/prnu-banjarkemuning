@@ -1,0 +1,1417 @@
+/* ==========================================================================
+   PRNU BANJARKEMUNING - DESIGN SYSTEM (VANILLA CSS)
+   Full Picture, Parallax, Animasi Halus & Supabase Integrasi
+   ========================================================================== */
+
+:root {
+  /* Brand Tokens - Nahdlatul Ulama */
+  --color-nu-green: #008744;
+  --color-nu-deep: #00562b;
+  --color-nu-darker: #002e17;
+  --color-nu-tint: #eaf5ee;
+  --color-nu-tint-soft: #f2f9f4;
+  
+  --color-nu-gold: #c59b27;
+  --color-nu-gold-light: #f5df8e;
+  --color-nu-gold-bg: #fffbf0;
+
+  /* Neutrals & Surfaces */
+  --color-bg: #f8faf8;
+  --color-surface: #ffffff;
+  --color-surface-muted: #f1f5f2;
+  --color-border: #dbe5de;
+  --color-border-subtle: #ebf2ec;
+
+  /* Typography Colors (High Contrast WCAG AAA/AA) */
+  --color-text-main: #112216;
+  --color-text-body: #233b2a;
+  --color-text-muted: #4e6856;
+  --color-text-inverse: #ffffff;
+
+  /* Typography Fonts */
+  --font-main: 'Plus Jakarta Sans', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-serif: 'Merriweather', 'Amiri', Georgia, serif;
+
+  /* Elevation / Shadows */
+  --shadow-sm: 0 1px 3px rgba(0, 54, 26, 0.06), 0 1px 2px rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 14px rgba(0, 54, 26, 0.08), 0 2px 5px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 14px 28px rgba(0, 54, 26, 0.14), 0 6px 12px rgba(0, 0, 0, 0.05);
+
+  /* Radius */
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-lg: 18px;
+  --radius-full: 9999px;
+
+  /* Layout Container */
+  --container-max: 1140px;
+  --header-height: 74px;
+}
+
+/* Base Reset */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-main);
+  background-color: var(--color-bg);
+  color: var(--color-text-body);
+  line-height: 1.6;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Typography Elements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--color-text-main);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+p {
+  margin-bottom: 1rem;
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+a {
+  color: var(--color-nu-green);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--color-nu-deep);
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* Layout Utilities */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1.25rem;
+  padding-right: 1.25rem;
+}
+
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.section-alt {
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+/* Section Headers */
+.section-header {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 3.25rem auto;
+}
+
+.badge-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.35rem 0.85rem;
+  background-color: var(--color-nu-tint);
+  color: var(--color-nu-deep);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  border-radius: var(--radius-full);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 0.85rem;
+  border: 1px solid rgba(0, 122, 61, 0.15);
+}
+
+.badge-gold {
+  background-color: var(--color-nu-gold-bg);
+  color: #8c6a0d;
+  border-color: rgba(197, 155, 39, 0.35);
+}
+
+.section-title {
+  font-size: 2.15rem;
+  color: var(--color-nu-deep);
+  margin-bottom: 0.75rem;
+  letter-spacing: -0.015em;
+}
+
+.section-subtitle {
+  font-size: 1.0625rem;
+  color: var(--color-text-muted);
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  min-height: 46px;
+  padding: 0.7rem 1.5rem;
+  font-size: 0.9375rem;
+  font-weight: 600;
+  border-radius: var(--radius-md);
+  transition: all 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+  text-decoration: none;
+}
+
+.btn-primary {
+  background-color: var(--color-nu-green);
+  color: var(--color-text-inverse);
+  box-shadow: 0 4px 12px rgba(0, 135, 68, 0.28);
+}
+
+.btn-primary:hover {
+  background-color: var(--color-nu-deep);
+  color: var(--color-text-inverse);
+  box-shadow: 0 6px 16px rgba(0, 86, 43, 0.38);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background-color: var(--color-surface);
+  color: var(--color-nu-deep);
+  border: 1.5px solid var(--color-border);
+}
+
+.btn-secondary:hover {
+  background-color: var(--color-nu-tint);
+  border-color: var(--color-nu-green);
+  color: var(--color-nu-darker);
+  transform: translateY(-2px);
+}
+
+.btn-gold {
+  background: linear-gradient(135deg, #d4af37 0%, #b8860b 100%);
+  color: #121008;
+  font-weight: 700;
+  box-shadow: 0 4px 14px rgba(184, 134, 11, 0.35);
+}
+
+.btn-gold:hover {
+  background: linear-gradient(135deg, #e5c14e 0%, #c59b27 100%);
+  color: #000;
+  box-shadow: 0 6px 18px rgba(184, 134, 11, 0.45);
+  transform: translateY(-2px);
+}
+
+.btn-glass {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #ffffff;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+}
+
+.btn-glass:hover {
+  background: rgba(255, 255, 255, 0.28);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.6);
+  transform: translateY(-2px);
+}
+
+/* ==========================================================================
+   NAVBAR COMPONENT
+   ========================================================================== */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(255, 255, 255, 0.94);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-border);
+  transition: all 0.25s ease;
+}
+
+.site-header.scrolled {
+  background-color: rgba(255, 255, 255, 0.98);
+  box-shadow: 0 4px 16px rgba(0, 46, 23, 0.08);
+}
+
+.header-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--header-height);
+}
+
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  text-decoration: none;
+}
+
+.brand-logo-img {
+  width: 46px;
+  height: 46px;
+  flex-shrink: 0;
+  transition: transform 0.3s ease;
+}
+
+.brand-link:hover .brand-logo-img {
+  transform: rotate(5deg) scale(1.05);
+}
+
+.brand-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.brand-title {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: var(--color-nu-deep);
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+}
+
+.brand-subtitle {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.nav-desktop {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.nav-link {
+  font-size: 0.9375rem;
+  font-weight: 600;
+  color: var(--color-text-body);
+  padding: 0.5rem 0.25rem;
+  position: relative;
+  transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+  color: var(--color-nu-green);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 50%;
+  width: 0;
+  height: 2px;
+  background-color: var(--color-nu-gold);
+  transition: all 0.25s ease;
+  transform: translateX(-50%);
+}
+
+.nav-link:hover::after {
+  width: 100%;
+}
+
+.mobile-menu-btn {
+  display: none;
+  min-width: 44px;
+  min-height: 44px;
+  align-items: center;
+  justify-content: center;
+  border-radius: var(--radius-sm);
+  color: var(--color-nu-deep);
+  background-color: var(--color-nu-tint);
+}
+
+/* Mobile Drawer */
+.mobile-drawer {
+  display: none;
+  position: fixed;
+  top: var(--header-height);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: var(--color-surface);
+  border-top: 1px solid var(--color-border);
+  padding: 1.5rem;
+  overflow-y: auto;
+  z-index: 99;
+}
+
+.mobile-drawer.open {
+  display: block;
+  animation: fadeIn 0.2s ease;
+}
+
+.mobile-nav-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.mobile-nav-link {
+  font-size: 1.125rem;
+  font-weight: 600;
+  padding: 0.75rem 0;
+  border-bottom: 1px solid var(--color-border-subtle);
+  color: var(--color-text-main);
+  display: block;
+}
+
+/* ==========================================================================
+   FULL-PICTURE HERO COMPONENT WITH PARALLAX
+   ========================================================================== */
+.hero-fullpic-section {
+  position: relative;
+  min-height: 88vh;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background-color: var(--color-nu-darker);
+}
+
+.hero-fullpic-bg {
+  position: absolute;
+  top: -15%;
+  left: 0;
+  right: 0;
+  bottom: -15%;
+  background-image: url('/assets/hero-bg.jpg');
+  background-size: cover;
+  background-position: center;
+  z-index: 1;
+  will-change: transform;
+}
+
+.hero-fullpic-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(0, 46, 23, 0.92) 0%,
+    rgba(0, 86, 43, 0.85) 45%,
+    rgba(0, 30, 15, 0.94) 100%
+  );
+  z-index: 2;
+}
+
+.hero-fullpic-content {
+  position: relative;
+  z-index: 3;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+}
+
+.hero-fullpic-grid {
+  display: grid;
+  grid-template-columns: 1.25fr 0.85fr;
+  align-items: center;
+  gap: 3.5rem;
+}
+
+.hero-pill-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+}
+
+.star-icon {
+  color: var(--color-nu-gold-light);
+  font-size: 0.9rem;
+}
+
+.hero-fullpic-title {
+  font-size: 3.25rem;
+  font-weight: 800;
+  line-height: 1.15;
+  color: #ffffff;
+  margin-bottom: 1.35rem;
+  letter-spacing: -0.025em;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero-fullpic-title .text-highlight {
+  color: var(--color-nu-gold-light);
+}
+
+.hero-fullpic-lead {
+  font-size: 1.15rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2.25rem;
+  max-width: 560px;
+  line-height: 1.65;
+  text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+}
+
+.hero-fullpic-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+
+/* Hero Stats Row */
+.hero-stats-row {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  background: rgba(0, 20, 10, 0.45);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  padding: 1rem 1.75rem;
+  border-radius: var(--radius-md);
+  flex-wrap: wrap;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.stat-number {
+  font-size: 1.65rem;
+  font-weight: 800;
+  color: var(--color-nu-gold-light);
+  line-height: 1;
+  font-feature-settings: "tnum";
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.8);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-top: 0.25rem;
+}
+
+.stat-separator {
+  width: 1px;
+  height: 32px;
+  background-color: rgba(255, 255, 255, 0.15);
+}
+
+/* Floating Emblem Card */
+.hero-card-container {
+  display: flex;
+  justify-content: center;
+}
+
+.hero-floating-glass-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem 2rem;
+  text-align: center;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.35);
+  position: relative;
+  overflow: hidden;
+  max-width: 360px;
+  width: 100%;
+  animation: floatLevitate 5s ease-in-out infinite;
+}
+
+.hero-floating-glass-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 5px;
+  background: linear-gradient(90deg, var(--color-nu-green), var(--color-nu-gold));
+}
+
+.emblem-wrapper {
+  margin-bottom: 1.25rem;
+}
+
+.emblem-hero-img {
+  width: 140px;
+  height: 140px;
+  margin: 0 auto;
+  display: block;
+  filter: drop-shadow(0 6px 12px rgba(0, 86, 43, 0.2));
+}
+
+.emblem-org-name {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: var(--color-nu-deep);
+  margin-bottom: 0.4rem;
+  letter-spacing: -0.01em;
+}
+
+.emblem-org-loc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.45;
+  margin-bottom: 1.25rem;
+}
+
+.emblem-footer-tag {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.75rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.tag-aswaja {
+  color: #8c6a0d;
+  background-color: var(--color-nu-gold-bg);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.tag-live {
+  color: var(--color-nu-green);
+  background-color: var(--color-nu-tint);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+/* ==========================================================================
+   LAPORAN KOIN NU PARALLAX SECTION
+   ========================================================================== */
+.laporan-parallax-section {
+  position: relative;
+  padding: 6rem 0;
+  background-color: var(--color-nu-darker);
+  overflow: hidden;
+}
+
+.laporan-bg-layer {
+  position: absolute;
+  inset: 0;
+  background-image: url('/assets/koin-nu-banner.jpg');
+  background-size: cover;
+  background-position: center;
+  filter: brightness(0.4);
+}
+
+.laporan-overlay-dark {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at center, rgba(0, 46, 23, 0.85) 0%, rgba(0, 20, 10, 0.95) 100%);
+}
+
+.laporan-content {
+  position: relative;
+  z-index: 2;
+}
+
+.laporan-cards-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+
+.laporan-metric-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.laporan-metric-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-nu-gold);
+}
+
+.metric-badge-label {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: rgba(255, 255, 255, 0.75);
+  margin-bottom: 0.75rem;
+}
+
+.metric-value {
+  font-size: 1.85rem;
+  font-weight: 800;
+  line-height: 1.15;
+  margin-bottom: 0.5rem;
+  font-feature-settings: "tnum";
+}
+
+.metric-value.text-green {
+  color: #55e691;
+}
+
+.metric-value.text-gold {
+  color: var(--color-nu-gold-light);
+}
+
+.metric-value.text-cyan {
+  color: #70d6ff;
+}
+
+.metric-desc {
+  font-size: 0.8125rem;
+  color: rgba(255, 255, 255, 0.7);
+  line-height: 1.4;
+}
+
+.laporan-detail-box {
+  background: rgba(0, 30, 15, 0.85);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: var(--radius-lg);
+  padding: 2.25rem;
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+}
+
+.progress-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: #ffffff;
+  font-size: 0.9375rem;
+  margin-bottom: 0.75rem;
+}
+
+.progress-bar-track {
+  width: 100%;
+  height: 12px;
+  background-color: rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar-fill {
+  height: 100%;
+  background: linear-gradient(90deg, #00b05b 0%, var(--color-nu-gold) 100%);
+  border-radius: var(--radius-full);
+  transition: width 0.8s ease;
+}
+
+.laporan-notes {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-radius: var(--radius-sm);
+  padding: 1rem 1.25rem;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.875rem;
+  line-height: 1.55;
+  border-left: 3px solid var(--color-nu-gold);
+}
+
+/* ==========================================================================
+   WARTA BERITA GRID & MODAL
+   ========================================================================== */
+.warta-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.75rem;
+}
+
+.warta-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: all 0.25s ease;
+}
+
+.warta-card:hover {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-nu-green);
+}
+
+.warta-meta-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.85rem;
+}
+
+.warta-badge {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-nu-deep);
+  background-color: var(--color-nu-tint);
+  padding: 0.2rem 0.6rem;
+  border-radius: var(--radius-sm);
+}
+
+.warta-date {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.warta-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  line-height: 1.35;
+  margin-bottom: 0.75rem;
+}
+
+.warta-excerpt {
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+  margin-bottom: 1.25rem;
+}
+
+.warta-footer {
+  margin-top: auto;
+  padding-top: 1rem;
+  border-top: 1px solid var(--color-border-subtle);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.warta-author {
+  font-size: 0.8125rem;
+  color: var(--color-text-muted);
+}
+
+.warta-read-btn {
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-nu-green);
+  transition: color 0.2s;
+}
+
+.warta-read-btn:hover {
+  color: var(--color-nu-deep);
+  text-decoration: underline;
+}
+
+/* Modal Reader */
+.article-modal-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.65);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.article-modal-content {
+  background-color: var(--color-surface);
+  border-radius: var(--radius-lg);
+  max-width: 680px;
+  width: 100%;
+  max-height: 85vh;
+  overflow-y: auto;
+  padding: 2.5rem;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: modalPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.modal-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  margin-bottom: 1.25rem;
+}
+
+.modal-close-btn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  color: var(--color-text-main);
+  transition: background-color 0.2s;
+}
+
+.modal-close-btn:hover {
+  background-color: var(--color-border);
+}
+
+.modal-title {
+  font-size: 1.65rem;
+  color: var(--color-nu-deep);
+  line-height: 1.3;
+  margin-bottom: 1.25rem;
+}
+
+.modal-body {
+  color: var(--color-text-body);
+  font-size: 1rem;
+}
+
+/* ==========================================================================
+   SAMBUTAN / MUKADIMAH
+   ========================================================================== */
+.quote-card {
+  background-color: var(--color-surface);
+  border-left: 4px solid var(--color-nu-gold);
+  border-radius: var(--radius-md);
+  padding: 2.25rem;
+  box-shadow: var(--shadow-sm);
+  border-right: 1px solid var(--color-border-subtle);
+  border-top: 1px solid var(--color-border-subtle);
+  border-bottom: 1px solid var(--color-border-subtle);
+}
+
+.basmalah {
+  font-family: var(--font-serif);
+  font-size: 1.5rem;
+  text-align: center;
+  color: var(--color-nu-deep);
+  margin-bottom: 1.5rem;
+  font-weight: 700;
+}
+
+.quote-text {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--color-text-main);
+  font-style: italic;
+  margin-bottom: 1.5rem;
+}
+
+.quote-author {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.author-avatar-placeholder {
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background-color: var(--color-nu-tint);
+  border: 1.5px solid var(--color-nu-green);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  color: var(--color-nu-deep);
+  font-size: 1rem;
+}
+
+.author-name {
+  font-weight: 700;
+  color: var(--color-nu-deep);
+  font-size: 1rem;
+}
+
+.author-role {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+}
+
+/* ==========================================================================
+   STRUKTUR ORGANISASI (SYURIYAH & TANFIDZIYAH)
+   ========================================================================== */
+.tabs-nav {
+  display: flex;
+  justify-content: center;
+  gap: 0.75rem;
+  margin-bottom: 2.5rem;
+  flex-wrap: wrap;
+}
+
+.tab-btn {
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  background-color: var(--color-surface);
+  color: var(--color-text-body);
+  border: 1.5px solid var(--color-border);
+  transition: all 0.2s ease;
+  min-height: 44px;
+}
+
+.tab-btn:hover {
+  border-color: var(--color-nu-green);
+  color: var(--color-nu-deep);
+}
+
+.tab-btn.active {
+  background-color: var(--color-nu-deep);
+  color: var(--color-text-inverse);
+  border-color: var(--color-nu-deep);
+  box-shadow: 0 4px 12px rgba(0, 86, 43, 0.3);
+}
+
+.structure-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.structure-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  flex-direction: column;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, border-color 0.2s ease;
+}
+
+.structure-card:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--color-nu-green);
+}
+
+.card-role-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-nu-deep);
+  background-color: var(--color-nu-tint);
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-sm);
+  align-self: flex-start;
+  margin-bottom: 0.75rem;
+}
+
+.card-person-name {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--color-text-main);
+  margin-bottom: 0.5rem;
+}
+
+.card-person-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-muted);
+  line-height: 1.5;
+  margin-top: auto;
+}
+
+/* ==========================================================================
+   BANOM & LEMBAGA
+   ========================================================================== */
+.banom-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+}
+
+.banom-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 1.75rem;
+  box-shadow: var(--shadow-sm);
+  transition: all 0.2s ease;
+  display: flex;
+  flex-direction: column;
+}
+
+.banom-card:hover {
+  border-color: var(--color-nu-gold);
+  box-shadow: var(--shadow-md);
+}
+
+.banom-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.banom-avatar {
+  width: 48px;
+  height: 48px;
+  background-color: var(--color-nu-deep);
+  color: var(--color-text-inverse);
+  font-weight: 800;
+  font-size: 1.125rem;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.banom-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--color-nu-deep);
+}
+
+.banom-badge {
+  font-size: 0.75rem;
+  color: var(--color-text-muted);
+  font-weight: 600;
+}
+
+.banom-leader {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-main);
+  background-color: var(--color-surface-muted);
+  padding: 0.4rem 0.75rem;
+  border-radius: var(--radius-sm);
+  margin-bottom: 1rem;
+}
+
+.banom-focus {
+  font-size: 0.9375rem;
+  color: var(--color-text-body);
+  line-height: 1.55;
+}
+
+/* Lembaga Highlight Card */
+.lembaga-section-card {
+  background: linear-gradient(135deg, var(--color-nu-darker) 0%, var(--color-nu-deep) 100%);
+  color: var(--color-text-inverse);
+  border-radius: var(--radius-lg);
+  padding: 3.25rem 2.25rem;
+  margin-top: 3.5rem;
+  box-shadow: var(--shadow-md);
+}
+
+.lembaga-header {
+  text-align: center;
+  max-width: 600px;
+  margin: 0 auto 2.5rem auto;
+}
+
+.lembaga-header h3 {
+  color: var(--color-text-inverse);
+  font-size: 1.75rem;
+  margin-bottom: 0.5rem;
+}
+
+.lembaga-header p {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 1rem;
+}
+
+.lembaga-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.lembaga-item {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  backdrop-filter: blur(4px);
+}
+
+.lembaga-code-badge {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 800;
+  color: var(--color-nu-gold-light);
+  letter-spacing: 0.05em;
+  margin-bottom: 0.5rem;
+}
+
+.lembaga-title {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 0.5rem;
+}
+
+.lembaga-desc {
+  font-size: 0.875rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.5;
+}
+
+/* ==========================================================================
+   AGENDA & LAYANAN UMAT
+   ========================================================================== */
+.agenda-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.agenda-card {
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  border-top: 3px solid var(--color-nu-green);
+}
+
+.agenda-time {
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: var(--color-nu-gold);
+  text-transform: uppercase;
+  margin-bottom: 0.35rem;
+}
+
+.agenda-title {
+  font-size: 1.15rem;
+  color: var(--color-nu-deep);
+  margin-bottom: 0.5rem;
+}
+
+.agenda-loc {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-text-muted);
+  margin-bottom: 0.5rem;
+}
+
+.agenda-desc {
+  font-size: 0.875rem;
+  color: var(--color-text-body);
+}
+
+/* Contact Bar / Sekretariat */
+.contact-banner {
+  background-color: var(--color-nu-tint-soft);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 2.5rem;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.contact-info-title {
+  font-size: 1.35rem;
+  color: var(--color-nu-deep);
+  margin-bottom: 0.5rem;
+}
+
+.contact-info-desc {
+  font-size: 0.9375rem;
+  color: var(--color-text-muted);
+  max-width: 580px;
+}
+
+/* ==========================================================================
+   FOOTER COMPONENT
+   ========================================================================== */
+.site-footer {
+  background-color: var(--color-nu-darker);
+  color: rgba(255, 255, 255, 0.75);
+  padding: 4.5rem 0 2rem 0;
+  border-top: 3px solid var(--color-nu-gold);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.footer-brand-title {
+  font-size: 1.25rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+}
+
+.footer-brand-desc {
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  max-width: 400px;
+}
+
+.footer-col-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: var(--color-nu-gold-light);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.footer-links-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+}
+
+.footer-links-list a {
+  color: rgba(255, 255, 255, 0.8);
+  font-size: 0.9375rem;
+  transition: color 0.2s;
+}
+
+.footer-links-list a:hover {
+  color: #ffffff;
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  padding-top: 2rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  font-size: 0.875rem;
+}
+
+/* ==========================================================================
+   ANIMATIONS & KEYFRAMES
+   ========================================================================== */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes floatLevitate {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-7px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes modalPop {
+  from {
+    opacity: 0;
+    transform: scale(0.96) translateY(10px);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* ==========================================================================
+   RESPONSIVE BREAKPOINTS (Mobile Polish)
+   ========================================================================== */
+@media (max-width: 900px) {
+  .hero-fullpic-grid {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 2.5rem;
+  }
+
+  .hero-pill-badge {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-fullpic-lead {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .hero-fullpic-actions {
+    justify-content: center;
+  }
+
+  .hero-stats-row {
+    justify-content: center;
+  }
+
+  .footer-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .nav-desktop {
+    display: none;
+  }
+
+  .mobile-menu-btn {
+    display: flex;
+  }
+
+  .hero-fullpic-title {
+    font-size: 2.15rem;
+  }
+
+  .section-title {
+    font-size: 1.65rem;
+  }
+
+  .structure-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .laporan-cards-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .contact-banner {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .laporan-cards-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .hero-stats-row {
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+  }
+
+  .stat-separator {
+    display: none;
+  }
+}
