@@ -43,7 +43,7 @@ export default function Navbar({ meta }) {
         {/* Brand Link */}
         <a href="#beranda" className="brand-link" title="Beranda PRNU Banjarkemuning">
           <img
-            src="/assets/logo-nu.svg"
+            src="/assets/NU-Green-Bg.jpg"
             alt="Lambang Nahdlatul Ulama"
             className="brand-logo-img"
             width="46"

@@ -13,7 +13,7 @@ export default function Footer({ meta }) {
           <div>
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '1rem' }}>
               <img
-                src="/assets/logo-nu.svg"
+                src="/assets/NU-Green-Bg.jpg"
                 alt="Logo NU"
                 width="38"
                 height="38"

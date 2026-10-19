@@ -85,7 +85,7 @@ export default function Hero({ meta }) {
             <div className="hero-floating-glass-card">
               <div className="emblem-wrapper">
                 <img
-                  src="/assets/logo-nu.svg"
+                  src="/assets/NU-Green-Bg.jpg"
                   alt="Lambang Nahdlatul Ulama PRNU Banjarkemuning"
                   className="emblem-hero-img"
                   width="150"
