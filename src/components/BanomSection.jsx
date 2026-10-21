@@ -4,6 +4,15 @@ export default function BanomSection({ banom, lembaga }) {
   const banomList = banom || [];
   const lembagaList = lembaga || [];
 
+  const banomLogos = {
+    ansor: '/assets/Ansor.png',
+    fatayat: '/assets/Fatayat.png',
+    ipnu: '/assets/IPNU.png',
+    ippnu: '/assets/IPPNU.png',
+    muslimat: '/assets/NU-Green-Bg.jpg',
+    banser: '/assets/Banser.png'
+  };
+
   return (
     <section id="banom" className="section section-alt">
       <div className="container">
@@ -20,9 +29,17 @@ export default function BanomSection({ banom, lembaga }) {
           {banomList.map((item) => (
             <div key={item.id} className="banom-card">
               <div className="banom-header">
-                <div className="banom-avatar" aria-hidden="true">
-                  {item.iconSymbol || item.name.substring(0, 2)}
-                </div>
+                {banomLogos[item.id] ? (
+                  <img
+                    src={banomLogos[item.id]}
+                    alt={`Logo ${item.name}`}
+                    style={{ width: '48px', height: '48px', objectFit: 'contain', borderRadius: '8px', padding: '2px', backgroundColor: '#f8faf8', border: '1px solid var(--color-border)' }}
+                  />
+                ) : (
+                  <div className="banom-avatar" aria-hidden="true">
+                    {item.iconSymbol || item.name.substring(0, 2)}
+                  </div>
+                )}
                 <div>
                   <h3 className="banom-name">{item.name}</h3>
                   <span className="banom-badge">{item.badge}</span>

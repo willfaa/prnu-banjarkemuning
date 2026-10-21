@@ -15,7 +15,7 @@ export default function Footer({ meta }) {
               <img
                 src="/assets/NU-Green-Bg.jpg"
                 alt="Logo NU"
-                width="38"
+                width="50"
                 height="38"
                 style={{ filter: 'brightness(1.1)' }}
               />

@@ -46,7 +46,7 @@ export default function Navbar({ meta }) {
             src="/assets/NU-Green-Bg.jpg"
             alt="Lambang Nahdlatul Ulama"
             className="brand-logo-img"
-            width="46"
+            width="70"
             height="46"
           />
           <div className="brand-info">

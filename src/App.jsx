@@ -18,6 +18,8 @@ import {
   getWartaBerita
 } from './services/api';
 
+import { supabase } from './services/supabaseClient';
+
 export default function App() {
   const [meta, setMeta] = useState(null);
   const [pengurus, setPengurus] = useState(null);
@@ -54,6 +56,23 @@ export default function App() {
     }
 
     loadAllData();
+
+    // Supabase Realtime Subscription: auto-sync kapan pun data berubah di database
+    const channelName = `prnu-sync-${Math.random().toString(36).substring(7)}`;
+    const channel = supabase
+      .channel(channelName)
+      .on('postgres_changes', { event: '*', schema: 'public' }, (payload) => {
+        console.log('⚡ Realtime database change detected:', payload.table, payload.eventType);
+        loadAllData();
+      })
+      .subscribe((status, err) => {
+        console.log(`📡 Supabase Realtime [${channelName}] status:`, status);
+        if (err) console.error('Realtime subscription error:', err);
+      });
+
+    return () => {
+      supabase.removeChannel(channel);
+    };
   }, []);
 
   return (

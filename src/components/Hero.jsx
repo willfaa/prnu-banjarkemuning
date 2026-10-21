@@ -49,7 +49,7 @@ export default function Hero({ meta }) {
                 Struktur Pengurus
               </a>
               <a href="#laporan" className="btn btn-glass">
-                Laporan Kas & Koin NU
+                Lazisnu
               </a>
               <a href="#warta" className="btn btn-glass">
                 Warta Kegiatan
@@ -85,10 +85,10 @@ export default function Hero({ meta }) {
             <div className="hero-floating-glass-card">
               <div className="emblem-wrapper">
                 <img
-                  src="/assets/NU-Green-Bg.jpg"
+                  src="/assets/NU-Green.png"
                   alt="Lambang Nahdlatul Ulama PRNU Banjarkemuning"
                   className="emblem-hero-img"
-                  width="150"
+                  width="220"
                   height="150"
                 />
               </div>
