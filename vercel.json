@@ -1,5 +1,5 @@
 {
   "framework": null,
   "buildCommand": "npm --prefix frontend run build",
-  "outputDirectory": "frontend/.vercel/output"
+  "outputDirectory": "frontend/.next"
 }
